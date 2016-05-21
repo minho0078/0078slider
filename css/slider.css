@@ -5,6 +5,7 @@
    overflow: hidden;
 }
 .slider_btn_div{
+   border:1px solid red;
 }
 .slider_img{
    float:left;

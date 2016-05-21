@@ -1,10 +1,11 @@
 var sliderInfo_json = {
    "0" : {
       "isCenter" : true,
-      "width" : "600px", /* width can used percent*/
+      "width" : "450px", /* width can used percent*/
       "height" : "450px",
       "speed" : "3000", /*millisecond ex)1 second = 1000*/
       "loop" : "",
+      "form" : "",
       "obj" : {
 
          "slider":{
@@ -28,12 +29,23 @@ var sliderInfo_json = {
 
          "btn":{
             "isHidden":false,
-            "width":"600px",
             "height":"50px",
-            "fileName":[
-               false
-            ]
-         },
+            "fileName":{
+               "before":[
+                  "./img/btn.jpg",
+                  "./img/btn.jpg",
+                  "./img/btn.jpg",
+                  "./img/btn.jpg"
+               ],
+               "after":[
+                  "./img/btn_.jpg",
+                  "./img/btn_.jpg",
+                  "./img/btn_.jpg",
+                  "./img/btn_.jpg"
+               ]
+            }
+
+         }
 
       }
 
