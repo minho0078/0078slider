@@ -1,5 +1,3 @@
-// sliderBox의 갯수를 파악함.
-// sliderBox_uniqId_0 <-- json의 길이를 보면 알 수 있음.
 $(document).ready(function(){
    sliderFnc.init();
 });
@@ -8,20 +6,13 @@ var sliderFnc = function(){
    this.init = function(){
       var sCnt = Object.keys(sliderInfo_json).length;
 
-      // slider 갯수만큼 loop를 돌면서 내부 div 객체를 채워 줌.
-      // 내부 div --> image div 와 btn div
-      // 기능들은 uniqId를 따라서 개별적으로 작동될 수 있도록 해야 함.
-
       for(var i=0; i<sCnt; i++){
-         // slider객체의 id 구조 --> sliderSpace_uniqId_0
-         // uniqId를 갖는 객체.
          var oSpace = $('#sliderSpace_uniqId_'+i);
              oSpace.css({
                 "width":sliderInfo_json[i].width,
                 "height":sliderInfo_json[i].height,
                 "overflow":'hidden'
              });
-         // oSpace 내부에 image div 객체와 btn div 객체를 생성예정.
          var oImgDiv = this.build_oImg_Div(i);
          var oBtnDiv = this.build_oBtn_Div(i);
 
@@ -31,8 +22,6 @@ var sliderFnc = function(){
             oSpace.css("margin","0 auto");
          }
 
-
-         // 실제 Image 객체를 세팅함.
          var imgDiv = $('#slider_img_div_uniqId_'+i);
          var oImg = "";
          for(var j=0; j<sliderInfo_json[i].obj.slider.fileName.length; j++){
@@ -41,14 +30,22 @@ var sliderFnc = function(){
          }
 
          var speed = sliderInfo_json[i].speed;
-         var gap = parseInt(sliderInfo_json[i].width.replace("px"));
+
+         var gap = 0;
+
+         var imgWidth = "";
+         if(this.isPercent(sliderInfo_json[i].width)){
+           var percent = parseInt( (sliderInfo_json[i].width).replace("%",""))*0.01;
+           gap = document.body.clientWidth * percent;
+         }else{
+           gap = parseInt(sliderInfo_json[i].width.replace("px"));
+         }
+
          var scrollPosition = gap;
          var scrollImgCnt = sliderInfo_json[i].obj.slider.fileName.length;
          var limit = gap * (scrollImgCnt-1);
 
          setInterval(function(){
-            //oSpace.scrollLeft(scrollPosition);
-
             oSpace.animate({scrollLeft: scrollPosition}, speed);
 
             if(scrollPosition <limit){
@@ -61,8 +58,12 @@ var sliderFnc = function(){
       }
    },
    this.build_oImg_Div = function(i){
-      /* i를 uniqId로 갖는 image Div 객체 생성 */
-      var oImg_width = parseInt((sliderInfo_json[i].obj.slider.width).replace("px","")) * sliderInfo_json[i].obj.slider.fileName.length + 25;
+      var oImg_width = 0;
+      if(this.isPercent(sliderInfo_json[i].width)){
+         oImg_width = window.innerWidth * sliderInfo_json[i].obj.slider.fileName.length + 25;
+      }else{
+         oImg_width = parseInt((sliderInfo_json[i].width).replace("px","")) * sliderInfo_json[i].obj.slider.fileName.length + 25;
+      }
 
       var oImg = document.createElement("div");
           oImg.id = "slider_img_div_uniqId_"+i;
@@ -88,10 +89,26 @@ var sliderFnc = function(){
           oImg.className = "slider_img";
           oImg.src = sliderInfo_json[i].obj.slider.fileName[j];
           oImg.align= "left";
-          oImg.style.width = sliderInfo_json[i].obj.slider.width;
+
+          var img_width = "";
+          if(this.isPercent(sliderInfo_json[i].width)){
+             var percent = parseInt( (sliderInfo_json[i].width).replace("%",""))*0.01;
+             img_width = (document.body.clientWidth * percent)+"px";
+          }else{
+             img_width = sliderInfo_json[i].width;
+          }
+          oImg.style.width = img_width;
+
           oImg.style.height = sliderInfo_json[i].obj.slider.height;
           oImg.style.float = "left";
       return oImg;
+   },
+   this.isPercent = function(p){
+      if(p.indexOf("%")>-1){
+         return true;
+      }else{
+         return false;
+      }
    }
 
 }
