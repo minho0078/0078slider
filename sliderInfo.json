@@ -3,7 +3,7 @@ var sliderInfo_json = {
       "isCenter" : true,
       "width" : "600px", /* width can used percent*/
       "height" : "450px",
-      "speed" : "3000",
+      "speed" : "3000", /*millisecond ex)1 second = 1000*/
       "loop" : "",
       "obj" : {
 
