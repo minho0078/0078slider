@@ -12,7 +12,7 @@ first. i can not english...well : )
 2. make div object in your inner body tag. <br/>
 → div's id have to follow this pattern, <br/>
 → "sliderSpace_uniqId_"+number &nbsp;&nbsp;&nbsp;&nbsp;// ex) sliderSpace_uniqId_0  
-→ number is have to begin zero.
+→ number should always start with zero.
 
 
 # How To Use In Korean <br/>
