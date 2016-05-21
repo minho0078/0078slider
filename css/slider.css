@@ -1,0 +1,11 @@
+.sliderSpace{
+   overflow: hidden;
+}
+.slider_img_div{
+   overflow: hidden;
+}
+.slider_btn_div{
+}
+.slider_img{
+   float:left;
+}

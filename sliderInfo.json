@@ -1,0 +1,43 @@
+var sliderInfo_json = {
+   "0" : {
+      "isCenter" : true,
+      "width" : "600px",
+      "height" : "450px",
+      "speed" : "3000",
+      "loop" : "",
+      "obj" : {
+
+         "slider":{
+            "width":"600px",
+            "height":"400px",
+            "fileName":[
+               "./img/pic1_.PNG",
+               "./img/pic2_.PNG",
+               "./img/pic3_.PNG",
+               "./img/pic4_.PNG"
+            ]
+         },
+
+         "thumbnail":{
+            "use":false,
+            "width":"100px",
+            "height":"70px",
+            "fileName":[
+               false
+            ]
+         },
+
+         "btn":{
+            "isHidden":false,
+            "width":"600px",
+            "height":"50px",
+            "fileName":[
+               false
+            ]
+         },
+
+      }
+
+   }
+
+}
