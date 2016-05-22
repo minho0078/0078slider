@@ -3,9 +3,13 @@
 <sorry>
 first. i can not english...well : )
 </sorry>
+@ caution.
+"0078slider~.js" should always be positioned below "jquery-~.js"
 </pre>
 
 @ This is simple slider and name is "0078slider"<br/>
+
+
 
 # How To Use <br/>
 1. import 0078slider.js in your head tag <br/>
