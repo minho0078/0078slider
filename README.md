@@ -13,7 +13,8 @@ first. i can not english...well : )
 → div's id have to follow this pattern, <br/>
 → "sliderSpace_uniqId_"+number &nbsp;&nbsp;&nbsp;&nbsp;// ex) sliderSpace_uniqId_0  
 → number should always start with zero.
-
+3. this " var sliderFnc = new sliderFnc(); " in your script tag
+4. ready!
 
 # How To Use In Korean <br/>
 1. 0078slider.js를 Header에 import 합니다.<br/>
@@ -21,3 +22,5 @@ first. i can not english...well : )
 → div 객체의 패턴은 다음과 같아야 합니다.<br/>
 → "sliderSpace_uniqId_"+숫자 &nbsp;&nbsp;&nbsp;&nbsp;// ex) sliderSpace_uniqId_0  <br/>
 → 숫자는 반드시 0부터 시작되어야 합니다.<br/>
+3. script 태그안에 " var sliderFnc = new sliderFnc(); " 를 넣어주세요.
+4. 준비끝!
